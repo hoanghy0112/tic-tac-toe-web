@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5cb0484d.css",
+    "main.js": "/static/js/main.9f91955c.js",
+    "static/media/Studio.svg": "/static/media/Studio.a841aa6e2fffb6758697d4df2160d7b0.svg",
+    "static/media/13x13.svg": "/static/media/13x13.38de8b693da249a1e4dbcbb38214bccc.svg",
+    "static/media/10x10.svg": "/static/media/10x10.8acd1b1f7ab01c28337788386c691a21.svg",
+    "static/media/GameName.svg": "/static/media/GameName.52353b354314f79312c44a8397620af7.svg",
+    "static/media/background.svg": "/static/media/background.d2a39ca0fcdaa2ff893cd1273ac8ebf3.svg",
+    "static/media/history.svg": "/static/media/history.a5ad505e3b86ff8b6e0a04ded7c6b011.svg",
+    "static/media/setting.svg": "/static/media/setting.ea4babf8c61d52bfa15eaf1768b35ab3.svg",
+    "static/media/PvP.svg": "/static/media/PvP.00ea231da80af57adc4c79f7218bd0b2.svg",
+    "static/media/3x3.svg": "/static/media/3x3.e3bd3d9b99fae09533a8350c39ce30ff.svg",
+    "index.html": "/index.html",
+    "static/media/replay.svg": "/static/media/replay.378db47e11fa8abf0ff1d41bc26bb3a4.svg",
+    "static/media/robot.svg": "/static/media/robot.4968452009e65ea41f990c67b7cfe35d.svg",
+    "static/media/human.svg": "/static/media/human.39a64c8fb413ad5dd0fd720c95655969.svg",
+    "static/media/X.svg": "/static/media/X.e0e55f4e86d56b71356f285abca61dbf.svg",
+    "static/media/O.svg": "/static/media/O.fe7f67c4c52f8d3b01051206feefa9fe.svg",
+    "main.5cb0484d.css.map": "/static/css/main.5cb0484d.css.map",
+    "main.9f91955c.js.map": "/static/js/main.9f91955c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5cb0484d.css",
+    "static/js/main.9f91955c.js"
+  ]
+}
