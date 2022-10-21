@@ -28,7 +28,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build code
-        run: npm run build
+        run: |
+          npm i
+          npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
