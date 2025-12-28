@@ -22,6 +22,8 @@ import { useAppSelector, useAppDispatch } from '@/lib/store/hooks';
 
 import { NONE, O, X } from '@/lib/constants/cellType';
 import { MAP_3, MAP_10, MAP_13 } from '@/lib/constants/boardSize';
+import { VS_COM } from '@/lib/constants/gameMode';
+import { getBotMove } from '@/lib/utils/botUtils';
 
 import './page.scss';
 
@@ -36,7 +38,7 @@ export default function PlayPage() {
     const dispatch = useAppDispatch();
     const router = useRouter();
 
-    const { boardSize } = useAppSelector(configurationSelector);
+    const { boardSize, gameMode } = useAppSelector(configurationSelector);
 
     const currentMove = useAppSelector(currentMoveSelector);
     const previousMove = useAppSelector(previousMoveSelector);
@@ -76,7 +78,43 @@ export default function PlayPage() {
         }
     }, [boardSize, dispatch]);
 
+    // Bot move effect - triggers when it's bot's turn (O) in VS_COM mode
+    useEffect(() => {
+        // Only trigger if:
+        // 1. Game mode is VS_COM
+        // 2. It's O's turn (next move will be O, meaning current type is X)
+        // 3. Game is not won yet
+        // 4. Board has been initialized (currentMove.type exists)
+        if (
+            gameMode === VS_COM &&
+            currentMove.type === X &&
+            !winningState.isWin &&
+            boardMap.length > 0
+        ) {
+            // Add a small delay to make the bot move feel more natural
+            const timeoutId = setTimeout(() => {
+                const botMove = getBotMove({
+                    boardMap,
+                    currentMove,
+                    boardSize,
+                });
+
+                if (botMove) {
+                    dispatch(makeNewMove([botMove.x, botMove.y]));
+                }
+            }, 500);
+
+            return () => clearTimeout(timeoutId);
+        }
+    }, [gameMode, currentMove, winningState.isWin, boardMap, boardSize, dispatch]);
+
     const handleNewMove = (x: number, y: number) => (event: React.MouseEvent<HTMLDivElement>) => {
+        // In VS_COM mode, only allow moves when it's the player's turn (X's turn)
+        // currentMove.type === X means it's O's turn (bot's turn), so block
+        if (gameMode === VS_COM && currentMove.type === X && currentMove.x !== -1) {
+            return; // Bot's turn, don't allow player to click
+        }
+
         if (!winningState.isWin) {
             const target = event.target as HTMLElement;
             target.classList.toggle('new-move');
