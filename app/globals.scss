@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&family=Raleway&family=Red+Hat+Text:wght@300;400&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+
+  --disable: #505050;
+
+  --background-color: #fefae0;
+  --inner-color: #f9eed2;
+  --dialogue-color: #e6ddc4;
+  --bold-color: #4d3f1b;
+  --button-color: #fff0c5;
+  --primary-button-color: #e6ddc4;
+
+  --winning-color: #fffb00;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+#__next {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: var(--bold-color);
+  text-decoration: none;
+  transition: 0.3s;
+  &:hover {
+    text-shadow: 0 3px 3px #44444479;
+  }
+}
+
+.btn {
+  background-color: var(--button-color);
+  border: 3px solid var(--bold-color);
+  color: var(--bold-color);
+  border-radius: 999px;
+  outline: none;
+  width: 250px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: var(--bold-color);
+    color: var(--button-color);
+    cursor: pointer;
+  }
+}
+
+.primary-btn {
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  background-color: var(--primary-button-color);
+  width: 250px;
+  height: 70px;
+  font-size: 28px;
+  display: grid;
+  place-items: center;
+  font-family: 'Red Hat Text', sans-serif;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: var(--bold-color);
+    color: var(--button-color);
+    cursor: pointer;
+  }
+}
+
+.circle-btn {
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  background-color: var(--inner-color);
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  display: grid;
+  place-items: center;
+  font-family: 'Red Hat Text', sans-serif;
+  transition: 0.4s;
+
+  &.disabled {
+    background-color: var(--disable);
+    opacity: 0.5;
+  }
+
+  &:hover:not(.disabled) {
+    background-color: var(--bold-color);
+    color: var(--inner-color);
+    transform: translateY(-10px);
+    box-shadow: 0 5px 20px -5px #666666;
+    cursor: pointer;
+  }
+}
+
+.dialogue-btn {
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  background-color: var(--dialogue-color);
+  width: 120px;
+  height: 50px;
+  font-size: 24px;
+  display: grid;
+  place-items: center;
+  font-family: 'Red Hat Text', sans-serif;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: var(--bold-color);
+    color: var(--button-color);
+    cursor: pointer;
+  }
+}
+
+.back-btn {
+  position: fixed;
+  top: 55px;
+  left: 50px;
+  font-size: 24px;
+  color: var(--bold-color);
+
+  & > * {
+    transition: 0.3s;
+  }
+
+  &:hover {
+    cursor: pointer;
+    p {
+      font-weight: bold;
+      transform: translateY(-10px);
+      text-shadow: 5px 5px 5px #52431e79;
+    }
+  }
+}
+
+.background-img {
+  position: fixed;
+  top: -83px;
+  left: 325px;
+  z-index: 0;
+}
